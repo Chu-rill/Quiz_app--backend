@@ -8,21 +8,22 @@ const dotenv = require("dotenv").config();
 const { connectDB } = require("./src/utils/db");
 const rateLimit = require("express-rate-limit");
 const port = process.env.PORT;
-app.use(
-  cors({
-    origin: ["https://trivio-chi.vercel.app"],
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    allowedHeaders: [
-      "Origin",
-      "X-Requested-With",
-      "Content-Type",
-      "Accept",
-      "Authorization",
-    ],
-    // exposedHeaders: ["Authorization", "Set-Cookie"],
-    // credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["https://trivio-chi.vercel.app"],
+//     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+//     allowedHeaders: [
+//       "Origin",
+//       "X-Requested-With",
+//       "Content-Type",
+//       "Accept",
+//       "Authorization",
+//     ],
+//     // exposedHeaders: ["Authorization", "Set-Cookie"],
+//     // credentials: true,
+//   })
+// );
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 let limiter = rateLimit({
