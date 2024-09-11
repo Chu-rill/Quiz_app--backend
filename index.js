@@ -10,7 +10,7 @@ const rateLimit = require("express-rate-limit");
 const port = process.env.PORT;
 app.use(
   cors({
-    origin: [process.env.ALLOWED_URL],
+    origin: ["https://trivio-chi.vercel.app"],
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     allowedHeaders: [
       "Origin",
