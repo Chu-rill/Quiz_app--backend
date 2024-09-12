@@ -34,7 +34,7 @@ This is the backend for **Trivio**, a fullstack quiz application. The backend ha
    npm install
    ```
 3. Create a .env file with the following environment variables:
-   ```bash
+   ```env
    MONGO_URI=your-mongodb-uri
    JWT_SECRET=your-secret-key
    PORT=your-port-address
