@@ -38,6 +38,7 @@ This is the backend for **Trivio**, a fullstack quiz application. The backend ha
    MONGO_URI=your-mongodb-uri
    JWT_SECRET=your-secret-key
    PORT=your-port-address
+   JWT_LIFETIME=lifetime-of-jwt_token
    ```
 4. Start the server:
    ```bash
