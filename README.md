@@ -50,6 +50,42 @@ This is the backend for **Trivio**, a fullstack quiz application. The backend ha
 
 The backend is hosted on Render. You can find the frontend for Trivio [here](https://github.com/Chu-rill/Quiz_app).
 
+# Project Structure
+
+```bash
+├── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── controllers
+│   │   ├── auth_controller.js
+│   │   ├── leaderboard_controller.js
+│   │   └── quiz_controller.js
+│   ├── error
+│   │   └── error.js
+│   ├── logic
+│   │   ├── auth_logic.js
+│   │   ├── leaderboard_logic.js
+│   │   └── quiz_logic.js
+│   ├── middleWare
+│   │   ├── jwt.js
+│   │   └── query_validation.js
+│   ├── models
+│   │   ├── leaderboard_model.js
+│   │   ├── profileImages.js
+│   │   ├── quiz_model.js
+│   │   └── user_model.js
+│   ├── routes
+│   │   ├── auth_routes.js
+│   │   ├── leaderboard_routes.js
+│   │   └── quiz_routes.js
+│   └── utils
+│       ├── db.js
+│       └── encryption.js
+└── vercel.json
+```
+
 # Contributing
 
 Contributions are welcome. Fork the repository, make changes, and submit a pull request.
