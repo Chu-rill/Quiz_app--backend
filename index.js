@@ -8,30 +8,21 @@ const dotenv = require("dotenv").config();
 const { connectDB } = require("./src/utils/db");
 const rateLimit = require("express-rate-limit");
 const port = process.env.PORT;
-// app.use(
-//   cors({
-//     origin: ["https://trivio-chi.vercel.app"],
-//     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-//     allowedHeaders: [
-//       "Origin",
-//       "X-Requested-With",
-//       "Content-Type",
-//       "Accept",
-//       "Authorization",
-//     ],
-//     // exposedHeaders: ["Authorization", "Set-Cookie"],
-//     // credentials: true,
-//   })
-// );
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Set up the rate limiter to allow 50 requests per minute (windowMs = 1 minute, max = 50)
 let limiter = rateLimit({
-  max: 1000,
-  windowMs: 60 * 60 * 1000,
+  max: 50, // 50 requests
+  windowMs: 60 * 1000, // 1 minute
   message:
-    "We have received too many requests from this IP. Please try again after one hour.",
+    "We have received too many requests from this IP. Please try again after one minute.",
 });
+
+// Apply the rate limiter to all routes
+app.use(limiter);
 
 app.get("/", async (req, res) => {
   res.json({ success: true, message: "Backend Connected Successfully" });
@@ -43,6 +34,6 @@ app.use("/api/v1/leaderboard", leaderboardRoutes);
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
-  //connect to db
+  // Connect to the database
   connectDB();
 });
